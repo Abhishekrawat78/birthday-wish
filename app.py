@@ -33,7 +33,7 @@ def auto_balloons():
         let interval = setInterval(() => {
             const event = new KeyboardEvent("keydown", {key: "b"});
             document.dispatchEvent(event);
-        }, 2000);
+        }, 6000);
     </script>
     """
     st.markdown(balloons_script, unsafe_allow_html=True)
