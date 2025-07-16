@@ -51,7 +51,7 @@ show_fireworks()
 auto_balloons()
 
 # --- Step 1: Show Happy Birthday First ---
-st.markdown("<h1 style='text-align: center; color: red;'>🎉 Happy Birthday Bhai ❤ 🎉</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: red;'>🎉 Happy Birthday shishimanu ❤ 🎉</h1>", unsafe_allow_html=True)
 time.sleep(2)
 
 # --- Step 2: Show Image Slideshow ---
@@ -68,20 +68,13 @@ def typing_message(message, delay=0.02):
 
 # --- Final Message ---
 full_message = """
+happy birthday bhai 
 Zindagi mein kai log aaye aur gaye,
 Lekin tu wo hai jo har waqt mere saath khada raha.
 Dost toh kehte hain sab, par tu toh mere liye bhai se bhi badhkar hai.
 Jab main girta hoon, tu uthata hai,
 Jab main haar maanta hoon, tu kehta hai –
 "Bhai, tu kar lega... tu tod dega!"
-
-Tu sirf mera support nahi, mera fuel hai bhai –
-Jisne mujhe kabhi rukhne nahi diya.
-
-Aur bhai, yaad rakh –
-Ek din, hum dono milke apna business kholenge.
-Apna kaam, apna naam –
-"Dalle Brothers Pvt. Ltd." 😎🔥
 
 Jab tak tu sath hai, mujhe kisi cheez ka darr nahi.
 Tu hai toh sab hai.
