@@ -20,14 +20,23 @@ def play_music(file_path):
 # --- Fireworks Animation (looping with auto reload) ---
 def show_fireworks():
     fireworks_html = """
-    <div style="display: flex; justify-content: center;">
-      <iframe src="https://embed.lottiefiles.com/animation/4773" width="400" height="400" frameBorder="0" allowfullscreen></iframe>
+    <div style="display: flex; justify-content: center; position: fixed; top: 0; left: 0; width: 100%; z-index: -1;">
+      <iframe src="https://embed.lottiefiles.com/animation/4773" width="100%" height="400" frameBorder="0" allowfullscreen></iframe>
     </div>
+    """
+    components.html(fireworks_html, height=400)
+
+# --- Auto Balloons Trigger ---
+def auto_balloons():
+    balloons_script = """
     <script>
-      setInterval(() => window.location.reload(), 30000); // reload page every 30s
+        let interval = setInterval(() => {
+            const event = new KeyboardEvent("keydown", {key: "b"});
+            document.dispatchEvent(event);
+        }, 2000);
     </script>
     """
-    components.html(fireworks_html, height=420)
+    st.markdown(balloons_script, unsafe_allow_html=True)
 
 # --- Password Gate ---
 password = st.text_input("Enter password to unlock surprise", type="password")
@@ -39,6 +48,7 @@ st.success("Welcome, bhai! ❤️")
 
 play_music("birthday.mp3")
 show_fireworks()
+auto_balloons()
 
 # --- Step 1: Show Happy Birthday First ---
 st.markdown("<h1 style='text-align: center; color: red;'>🎉 Happy Birthday Bhai ❤ 🎉</h1>", unsafe_allow_html=True)
@@ -46,8 +56,6 @@ time.sleep(2)
 
 # --- Step 2: Show Image Slideshow ---
 st.image([
-    "WhatsApp Image 2025-07-16 at 19.02.17_98af8857.jpg",
-    "WhatsApp Image 2025-07-16 at 19.02.17_98af8857.jpg",
     "WhatsApp Image 2025-07-16 at 19.02.17_98af8857.jpg"
 ], use_container_width=True)
 time.sleep(2)
@@ -83,18 +91,5 @@ aur ek din duniya ko dikha denge ki asli bhai log kaun hote hain!
 ❤🎂💪
 """
 typing_message(full_message, delay=0.02)
-
-# --- Balloons (centered and repeated using JavaScript) ---
-st.markdown("""
-<div style='text-align: center;'>🎈🎈🎈</div>
-<script>
-    function triggerBalloons() {
-        const event = new Event("keydown");
-        event.key = "b";
-        document.dispatchEvent(event);
-    }
-    setInterval(triggerBalloons, 2000);
-</script>
-""", unsafe_allow_html=True)
 
 st.balloons()
