@@ -27,24 +27,32 @@ def play_music(file_path):
 
 play_music("birthday.mp3")
 
-# --- Fireworks Animation ---
+# --- Fireworks Animation (centered and looped) ---
 fireworks_html = """
-<iframe src="https://embed.lottiefiles.com/animation/4773" width="100%" height="300" frameBorder="0"></iframe>
+<div style="display: flex; justify-content: center;">
+  <iframe src="https://embed.lottiefiles.com/animation/4773" width="400" height="400" frameBorder="0" allowfullscreen></iframe>
+</div>
 """
-components.html(fireworks_html, height=300)
+components.html(fireworks_html, height=420)
 
-# --- Typing Effect ---
-def typing_message(message, delay=0.05):
-    typed = ""
-    for char in message:
-        typed += char
-        st.markdown(f"<h5>{typed}</h5>", unsafe_allow_html=True)
-        time.sleep(delay)
+# --- Step 1: Show Happy Birthday First ---
+st.markdown("<h1 style='text-align: center; color: red;'>🎉 Happy Birthday Bhai ❤ 🎉</h1>", unsafe_allow_html=True)
+time.sleep(2)
+
+# --- Step 2: Show Image Slideshow ---
+st.image([
+    "WhatsApp Image 2025-07-16 at 19.02.17_98af8857.jpg"
+], use_container_width=True)
+time.sleep(2)
+
+# --- Step 3: Typing Effect Message ---
+def typing_message(message, delay=0.02):
+    for line in message.strip().split("\n"):
+        st.markdown(f"<p style='font-size:18px; text-align: center;'>{line}</p>", unsafe_allow_html=True)
+        time.sleep(delay * len(line))
 
 # --- Final Message ---
 full_message = """
-Happy Birthday Bhai ❤
-
 Zindagi mein kai log aaye aur gaye,
 Lekin tu wo hai jo har waqt mere saath khada raha.
 Dost toh kehte hain sab, par tu toh mere liye bhai se bhi badhkar hai.
@@ -69,11 +77,6 @@ aur ek din duniya ko dikha denge ki asli bhai log kaun hote hain!
 """
 typing_message(full_message, delay=0.02)
 
-# --- Image Slideshow ---
-st.image([
-    "WhatsApp Image 2025-07-16 at 19.02.17_98af8857.jpg",
-    "WhatsApp Image 2025-07-16 at 19.02.17_98af8857.jpg",
-    "WhatsApp Image 2025-07-16 at 19.02.17_98af8857.jpg"
-], use_container_width=True)
-
+# --- Balloons (centered using markdown hack) ---
+st.markdown("<div style='text-align: center;'>🎈🎈🎈</div>", unsafe_allow_html=True)
 st.balloons()
